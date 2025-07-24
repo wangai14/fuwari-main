@@ -29,7 +29,7 @@ const className = Astro.props.class;
         />
         <circle cx="12" cy="12" r="3" fill="currentColor" />
       </svg>
-      <span id="sidebar-stats">统计加载中...</span>
+      <span>浏览已记录</span>
     </div>
   </div>
 
@@ -47,31 +47,3 @@ const className = Astro.props.class;
     </iframe>
   </div>
 </div>
-
-<!-- 👁️ 浏览/访客统计脚本 -->
-<script is:inline>
-  window.addEventListener("DOMContentLoaded", async () => {
-    try {
-      const res = await fetch("https://cloud.umami.is/api/websites/dc8728b4-fa5e-4191-981a-ab2bcb0dee27/stats", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "pageview",
-          url: location.pathname
-        })
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        const views = data?.pageviews?.value ?? 0;
-        const visitors = data?.uniques?.value ?? 0;
-        document.getElementById("sidebar-stats").textContent =
-          `浏览量 ${views} · 访问量 ${visitors}`;
-      } else {
-        document.getElementById("sidebar-stats").textContent = "统计获取失败";
-      }
-    } catch (e) {
-      document.getElementById("sidebar-stats").textContent = "统计加载错误";
-    }
-  });
-</script>
