@@ -11,39 +11,20 @@ interface Props {
 
 const className = Astro.props.class;
 ---
-
 <div id="sidebar" class:list={[className, "w-full"]}>
-  <!-- 🧍 个人信息 -->
-  <div class="flex flex-col w-full gap-4 mb-4">
-    <Profile />
-
-    <!-- 👁️ 浏览统计 -->
-    <div class="flex items-center text-sm text-white/60 dark:text-white/40 mt-2 px-1">
-      <svg class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <circle cx="12" cy="12" r="3" fill="currentColor" />
-      </svg>
-      <span>浏览已记录</span>
+    <div class="flex flex-col w-full gap-4 mb-4">
+        <Profile />
     </div>
-  </div>
+    <div id="sidebar-sticky" class="transition-all duration-700 flex flex-col w-full gap-4 top-4 sticky top-4">
+        <Categories class="onload-animation" style="animation-delay: 150ms" />
+        <Tag class="onload-animation" style="animation-delay: 200ms" />
 
-  <!-- 📌 置顶内容 -->
-  <div id="sidebar-sticky" class="transition-all duration-700 flex flex-col w-full gap-4 sticky top-4">
-    <Categories class="onload-animation" style="animation-delay: 150ms" />
-    <Tag class="onload-animation" style="animation-delay: 200ms" />
-
-    <!-- ✅ 推广 iframe -->
-    <iframe
-      frameborder="0"
-      src="https://support.nodeget.com/page/promotion?id=your_id"
-      style="border-radius:8px; height: 270px;
-            transform: scale(1.0); transform-origin: top left; width: 100%;">
-    </iframe>
-  </div>
+        <!-- ✅ 推广 iframe 直接写在这里 -->
+        <iframe
+          frameborder="0"
+          src="https://support.nodeget.com/page/promotion?id=your_id"
+          style="border-radius:8px; height: 270px;
+                 transform: scale(1.0); transform-origin: top left; width: 100%;">
+        </iframe>
+    </div>
 </div>
