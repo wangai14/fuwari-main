@@ -48,30 +48,21 @@ const className = Astro.props.class;
   </div>
 </div>
 
-<!-- 👁️ 浏览/访客统计脚本 -->
+<!-- 👁️ 浏览/访客统计脚本（Umami） -->
 <script is:inline>
   window.addEventListener("DOMContentLoaded", async () => {
     try {
-      const res = await fetch("https://cloud.umami.is/api/websites/dc8728b4-fa5e-4191-981a-ab2bcb0dee27/stats", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "pageview",
-          url: location.pathname
-        })
-      });
+      const res = await fetch("https://cloud.umami.is/api/websites/dc8728b4-fa5e-4191-981a-ab2bcb0dee27/stats");
+      if (!res.ok) throw new Error("Umami 请求失败");
 
-      if (res.ok) {
-        const data = await res.json();
-        const views = data?.pageviews?.value ?? 0;
-        const visitors = data?.uniques?.value ?? 0;
-        document.getElementById("sidebar-stats").textContent =
-          `浏览量 ${views} · 访问量 ${visitors}`;
-      } else {
-        document.getElementById("sidebar-stats").textContent = "统计获取失败";
-      }
+      const data = await res.json();
+      const views = data.pageviews ?? 0;
+      const visitors = data.uniques ?? 0;
+      document.getElementById("sidebar-stats").textContent =
+        `浏览量 ${views.toLocaleString()} · 访问量 ${visitors.toLocaleString()}`;
     } catch (e) {
       document.getElementById("sidebar-stats").textContent = "统计加载错误";
+      console.error("📊 Umami 加载失败：", e);
     }
   });
 </script>
