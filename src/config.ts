@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src: "/favicon/1.png", // Path of the favicon, relative to the /public directory
+			src: "https://e5bf5984.cloudflare-imgbed-csc.pages.dev/file/1753414862012_0_b67f5a87763bc15d58d147d89ff8823c_1753414687712.webp", // Path of the favicon, relative to the /public directory
 			theme: "light", // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
 			sizes: "32x32", // (Optional) Size of the favicon, set only if you have favicons of different sizes
 		},
