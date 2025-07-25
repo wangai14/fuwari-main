@@ -3,22 +3,22 @@ name: Sync to Gitee
 on:
   push:
     branches:
-      - main  # 如果你主分支不是 main，请改成 master
+      - main  # 如果你用的是 master 分支，请改成 master
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout full history
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 👈 关键：获取完整 Git 历史，避免 shallow update 错误
 
       - name: Push to Gitee
         run: |
           git config --global user.name "wangai14"
-          git config --global user.email "159wangao159@gmail.com"  # 可换成你真实邮箱
+          git config --global user.email "159wangao159@gmail.com"
 
           git remote add gitee https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/suggess/fuwari-main.git
-          
-          # 强制推送所有内容，包括分支和 tags
           git push --force --mirror gitee
