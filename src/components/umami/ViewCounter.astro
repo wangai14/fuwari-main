@@ -1,0 +1,13 @@
+---
+const { pathname } = Astro.url;
+const pageId = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+const umamiWebsiteId = "dc8728b4-fa5e-4191-981a-ab2bcb0dee27";
+const pageUrl = `https://us.umami.is/share/${umamiWebsiteId}/kejidao.ggff.net${pageId}`;
+---
+
+<div class="mt-6 text-sm text-gray-500 px-4 lg:px-0 text-center">
+  👁️ 本页浏览量：
+  <a href={pageUrl} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline ml-1">
+    查看统计图表
+  </a>
+</div>
