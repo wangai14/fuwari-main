@@ -1,0 +1,27 @@
+---
+// src/components/widget/ViewCounter.astro
+import { onMount } from "astro/jsx-runtime";
+import { useState } from "react/jsx-runtime";
+
+const shareId = "azr29Ow6KU9YfL2U"; // 你的 Umami 共享 ID
+const website = "kejidao.ggff.net";
+
+const [views, setViews] = useState(0);
+
+onMount(async () => {
+	try {
+		const now = Date.now();
+		const res = await fetch(
+			`https://us.umami.is/api/websites/${shareId}/metrics?type=pageview&startAt=946684800000&endAt=${now}`,
+		);
+		const json = await res.json();
+		setViews(json?.value ?? 0);
+	} catch (e) {
+		console.error("Failed to fetch views:", e);
+	}
+});
+---
+
+<div class="text-sm text-gray-400 mt-4 flex items-center gap-2">
+  👁 浏览量：{views.toLocaleString()} 次
+</div>
