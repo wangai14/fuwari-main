@@ -18,7 +18,8 @@ top: 2
 
 ---
 
-# ![](C:\Users\Administrator\AppData\Roaming\marktext\images\2025-08-04-10-56-48-image.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/305bab14-e90f-4842-868e-3f7fe1dd6856" />
+
 
 🔍 工具界面分析
 
@@ -103,5 +104,6 @@ top: 2
 - 不要全自动操作“加好友/发私信”，以防账号被封
 
 - 导出的数据仅供**研究和分析使用**，不要做恶意营销
+
 
 
