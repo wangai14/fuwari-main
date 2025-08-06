@@ -25,6 +25,15 @@ export const siteConfig: SiteConfig = {
 			url: "", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
+	background: {
+		enable: true, // Enable background image
+		src: "https://eo-pic.2x.nz/h", // Background image URL (supports HTTPS)
+		position: "center", // Background position: 'top', 'center', 'bottom'
+		size: "cover", // Background size: 'cover', 'contain', 'auto'
+		repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
+		attachment: "fixed", // Background attachment: 'fixed', 'scroll', 'local'
+		opacity: 0.5, // Background opacity (0-1)
+	},
 	toc: {
 		enable: true, // Display the table of contents on the right side of the post
 		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
