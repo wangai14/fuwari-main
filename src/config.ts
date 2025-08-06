@@ -16,13 +16,13 @@ export const siteConfig: SiteConfig = {
 		fixed: false, // Hide the theme color picker for visitors
 	},
 	banner: {
-		enable: false,
-		src: "https://pic.2x.nz/?img=h", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		enable: true,
+		src: "https://img.xn--ohqu9y07ujpb.dpdns.org/file/1754446851075_banner.DBvCl2Qg_ZBX2hI.webp", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
-			enable: false, // Display the credit text of the banner image
-			text: "", // Credit text to be displayed
-			url: "", // (Optional) URL link to the original artwork or artist's page
+			enable: true, // Display the credit text of the banner image
+			text: "Pixiv @chokei", // Credit text to be displayed
+			url: "https://www.pixiv.net/users/175341486", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
 	toc: {
