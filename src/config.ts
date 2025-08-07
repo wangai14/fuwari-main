@@ -44,6 +44,11 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
+			name: "友链",
+			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
+			external: false, // Show an external link icon and will open in a new tab
+		},
+		{
 			name: "统计",
 			url: "https://cloud.umami.is/share/azr29Ow6KU9YfL2U/kejidao.ggff.net", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
@@ -52,11 +57,6 @@ export const navBarConfig: NavBarConfig = {
 			name: "GitHub",
 			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
-		},
-		{
-			name: "友链",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
-			external: false, // Show an external link icon and will open in a new tab
 		},
 	],
 };
